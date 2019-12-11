@@ -34,7 +34,7 @@ dotenv.config({ path: '.env.example' });
  */
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
-const machinesController = require('./controllers/machines');
+const machineController = require('./controllers/machine');
 const apiController = require('./controllers/api');
 
 /**
@@ -153,7 +153,8 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-app.get('/account/machines', passportConfig.isAuthenticated, machinesController.getMachines)
+app.get('/account/machines', passportConfig.isAuthenticated, machineController.getMachines)
+app.get('/account/machines/machine-id-here', passportConfig.isAuthenticated, machineController.getMachine)
 
 /**
  * API examples routes.
