@@ -1,16 +1,11 @@
 {
-  "name": "hackathon-starter",
-  "version": "5.2.0",
-  "description": "A boilerplate for Node.js web applications",
+  "name": "Make Laundry",
+  "version": "1.0.0",
+  "description": "",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/ikejs/SPD-1.2-UI-UX-Assignment"
   },
-  "license": "MIT",
-  "author": "Sahat Yalkabov",
-  "contributors": [
-    "Yashar Fakhari (https://github.com/YasharF)"
-  ],
   "scripts": {
     "postinstall": "npm rebuild node-sass",
     "start": "node app.js",
