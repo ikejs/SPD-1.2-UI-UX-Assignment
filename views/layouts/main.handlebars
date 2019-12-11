@@ -20,18 +20,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarColor03">
             <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item {{#if active.home}}active{{/if}}">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
+            {{#if user}}
+                <li class="nav-item {{#if active.dashboard}}active{{/if}}">
+                    <a class="nav-link" href="/account/dashboard">Dashboard</a>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <a class="nav-link {{#if active.features}}active{{/if}}" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if active.pricing}}active{{/if}}" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{#if active.about}}active{{/if}}" href="#">About</a>
+                </li>
+            {{/if}}
         </ul>
         {{#if user}}
         <ul class="navbar-nav">
@@ -40,8 +46,9 @@
                         {{user.email}}
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="/account/dashboard">Dashboard</a>
+                        <a class="dropdown-item" href="/account">My Account</a>
+                        <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/logout">Logout</a>
                     </div>
                 </li>
