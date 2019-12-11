@@ -1,5 +1,8 @@
 $(document).ready(() => {
-  let reservedFor = "1:02";
+
+
+  // SECONDS AND MINUTES
+  let reservedFor = "5:00";
   const interval = setInterval(function() {
     const timer = reservedFor.split(':');
     let minutes = parseInt(timer[0], 10);
@@ -14,4 +17,39 @@ $(document).ready(() => {
     $('#reserved-for').text(`Reserved for ${minutes}:${seconds}`);
     reservedFor = minutes + ':' + seconds;
   }, 1000);
+
+
+  // MOCK DATA - UPSTAIRS DRYER (MINUTES AND HOURS)
+  let upstairsTopDryerTimer = "6:58";
+  const upstairsTopDryerInterval = setInterval(function() {
+    const timer = upstairsTopDryerTimer.split(':');
+    let hours = parseInt(timer[0], 10);
+    let minutes = parseInt(timer[1], 10);
+    --minutes;
+    hours = (minutes < 0) ? --hours : hours;
+    minutes = (minutes < 0) ? 59 : minutes;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    $('#upstairsTopDryerTime').text(`${hours}:${minutes}`);
+    upstairsTopDryerTimer = hours + ':' + minutes;
+  }, 1000 * 60);
+
+
+
+  // MOCK DATA - UPSTAIRS WASHER #2 (MINUTES AND HOURS)
+  let upstairsWasher2Timer = "23:14";
+  const upstairsWasher2Interval = setInterval(function() {
+    const timer = upstairsWasher2Timer.split(':');
+    let hours = parseInt(timer[0], 10);
+    let minutes = parseInt(timer[1], 10);
+    --minutes;
+    hours = (minutes < 0) ? --hours : hours;
+    minutes = (minutes < 0) ? 59 : minutes;
+    minutes = (minutes < 10) ? '0' + minutes : minutes;
+    $('#upstairsWasher2Time').text(`${hours}:${minutes}`);
+    upstairsWasher2Timer = hours + ':' + minutes;
+  }, 1000 * 60);
+
+
+
+
 });
