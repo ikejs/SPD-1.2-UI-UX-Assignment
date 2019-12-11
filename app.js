@@ -34,7 +34,7 @@ dotenv.config({ path: '.env.example' });
  */
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
-const dashboardController = require('./controllers/dashboard');
+const machinesController = require('./controllers/machines');
 const apiController = require('./controllers/api');
 
 /**
@@ -153,7 +153,7 @@ app.post('/account/password', passportConfig.isAuthenticated, userController.pos
 app.post('/account/delete', passportConfig.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConfig.isAuthenticated, userController.getOauthUnlink);
 
-app.get('/account/dashboard', passportConfig.isAuthenticated, dashboardController.getDashboard)
+app.get('/account/machines', passportConfig.isAuthenticated, machinesController.getMachines)
 
 /**
  * API examples routes.
@@ -208,7 +208,7 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRe
 });
 app.get('/auth/github', passport.authenticate('github'));
 app.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res) => {
-  res.redirect(req.session.returnTo || '/account/dashboard');
+  res.redirect(req.session.returnTo || '/account/machines');
 });
 app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email', 'https://www.googleapis.com/auth/drive', 'https://www.googleapis.com/auth/spreadsheets.readonly'], accessType: 'offline', prompt: 'consent' }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), (req, res) => {

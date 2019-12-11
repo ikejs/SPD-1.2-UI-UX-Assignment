@@ -15,7 +15,7 @@ const randomBytesAsync = promisify(crypto.randomBytes);
  */
 exports.getLogin = (req, res) => {
   if (req.user) {
-    return res.redirect('/account/dashboard');
+    return res.redirect('/account/machines');
   }
   res.render('account/login', {
     title: 'Login'
@@ -46,7 +46,7 @@ exports.postLogin = (req, res, next) => {
     req.logIn(user, (err) => {
       if (err) { return next(err); }
       req.flash('success', { msg: 'Success! You are logged in.' });
-      res.redirect(req.session.returnTo || '/account/dashboard');
+      res.redirect(req.session.returnTo || '/account/machines');
     });
   })(req, res, next);
 };

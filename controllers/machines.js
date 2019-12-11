@@ -1,7 +1,7 @@
-exports.getDashboard = (req, res) => {
-    res.render('account/dashboard', {
+exports.getMachines = (req, res) => {
+    res.render('account/machines', {
       title: 'Laundry Machines',
-      active: { dashboard: true },
+      active: { machines: true },
       machines: [
           {
               name: "Downstairs Washer",
