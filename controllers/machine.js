@@ -15,4 +15,9 @@ exports.getMachines = (req, res) => {
       ]
     });
   };
-  
+
+exports.getMachine = (req, res) => {
+    res.render('account/machine', {
+        title: "Machine Name"
+    })
+}
