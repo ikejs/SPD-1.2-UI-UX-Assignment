@@ -1,19 +1,17 @@
 $(document).ready(() => {
-  let timer2 = "5:00";
+  let reservedFor = "1:02";
   const interval = setInterval(function() {
-  
-  
-    const timer = timer2.split(':');
-    //by parsing integer, I avoid all extra string processing
+    const timer = reservedFor.split(':');
     let minutes = parseInt(timer[0], 10);
     let seconds = parseInt(timer[1], 10);
     --seconds;
+    if ((minutes==0) && (seconds < 1))  {
+      window.location = '/account/machines'
+    }
     minutes = (seconds < 0) ? --minutes : minutes;
-    if (minutes < 0) clearInterval(interval);
     seconds = (seconds < 0) ? 59 : seconds;
     seconds = (seconds < 10) ? '0' + seconds : seconds;
-    //minutes = (minutes < 10) ?  minutes : minutes;
     $('#reserved-for').text(`Reserved for ${minutes}:${seconds}`);
-    timer2 = minutes + ':' + seconds;
+    reservedFor = minutes + ':' + seconds;
   }, 1000);
 });
