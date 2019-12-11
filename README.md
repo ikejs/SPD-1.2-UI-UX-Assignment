@@ -15,4 +15,3 @@ Sarah is a student at FIDM in San Francisco who lives on the fourth floor at 851
 ![Machine Statuses](https://raw.githubusercontent.com/ikejs/SPD-1.2-UI-UX-Assignment/master/sprint2/images/prototype/sprint2statuses.png)
 
 ![Machine Detail](https://raw.githubusercontent.com/ikejs/SPD-1.2-UI-UX-Assignment/master/sprint2/images/prototype/sprint2machine.png)
-
